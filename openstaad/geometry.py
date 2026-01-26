@@ -79,6 +79,7 @@ class Geometry():
         "GetSelectedPhysicalMembers",
         "GetSelectedPlates",
         "IntersectBeams",
+        "RenumberBeam",
         "SelectMultipleBeams",
         "SelectMultiplePhysicalMembers",
         "SelectMultiplePlates",
@@ -467,6 +468,13 @@ class Geometry():
 
         return (lista[0])
     
+    def RenumberBeam(self, oldBeamNo: int, newBeamNo: int):
+        """
+        Renumber a beam.
+        """
+        result = int(self._geometry.RenumberBeam(oldBeamNo, newBeamNo))
+        return bool(result)
+
     #SelectPlate
 
     def SelectPlate(self,plate,add_mode = True):
