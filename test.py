@@ -1,186 +1,284 @@
 
 from openstaad import *
 
-geometry    = Geometry()
-load        = Load()
-output      = Output()
-properties  = Properties()
-root        = Root()
-view        = View()
 
 
-print("Start Testing...")
-print('-'*20+'\nGeometry node Functions\n'+'-'*20)
 
-## GEOMETRY - NODE
-node_1 = 1
-node_2 = 2
-cordidinates = (0.0, 0, 0.0)
-print('- GetLastNodeNo')
-print(geometry.GetLastNodeNo())
+# print("Start Testing...")
+# print('-'*20+'\nGeometry node Functions\n'+'-'*20)
 
-print('- GetNodeCoordinates')
-print(geometry.GetNodeCoordinates(node_1))
+# ## GEOMETRY - NODE
+# node_1 = 1
+# node_2 = 2
+# cordidinates = (0.0, 0, 0.0)
+# print('- GetLastNodeNo')
+# print(geometry.GetLastNodeNo())
 
-print('- GetNodeCount')
-print(geometry.GetNodeCount())
+# print('- GetNodeCoordinates')
+# print(geometry.GetNodeCoordinates(node_1))
 
-print('- GetNodeDistance')
-print(geometry.GetNodeDistance(node_1,node_2))
+# print('- GetNodeCount')
+# print(geometry.GetNodeCount())
 
-print('- GetNodeIncidence')
-print(geometry.GetNodeIncidence(node_1))
+# print('- GetNodeDistance')
+# print(geometry.GetNodeDistance(node_1,node_2))
 
-print('- GetNodeList')
-print(geometry.GetNodeList()[0:10])
+# print('- GetNodeIncidence')
+# print(geometry.GetNodeIncidence(node_1))
 
-print('- GetNodeNumber')
-print(geometry.GetNodeNumber(cordidinates))
+# print('- GetNodeList')
+# print(geometry.GetNodeList()[0:10])
 
-print('- GetNoOfSelectedNodes')
-print(geometry.GetNoOfSelectedNodes())
+# print('- GetNodeNumber')
+# print(geometry.GetNodeNumber(cordidinates))
 
-print('- GetSelectedNodes')
-print(geometry.GetSelectedNodes()[0:10])
+# print('- GetNoOfSelectedNodes')
+# print(geometry.GetNoOfSelectedNodes())
 
-# ## GEOMETRY - BEAM
+# print('- GetSelectedNodes')
+# print(geometry.GetSelectedNodes()[0:10])
 
-print('-'*20+'\nGeometry beam Functions\n'+'-'*20)
+# # ## GEOMETRY - BEAM
 
-beam_1 = 1
-print('- GetBeamLength')
-print(geometry.GetBeamLength(beam_1))
+# print('-'*20+'\nGeometry beam Functions\n'+'-'*20)
 
-print('- GetBeamList')
-print(geometry.GetBeamList()[0:10])
+# beam_1 = 1
+# print('- GetBeamLength')
+# print(geometry.GetBeamLength(beam_1))
 
-print('- GetLastBeamNo')
-print(geometry.GetLastBeamNo())
+# print('- GetBeamList')
+# print(geometry.GetBeamList()[0:10])
 
-print('- GetMemberCount')
-print(geometry.GetMemberCount())
+# print('- GetLastBeamNo')
+# print(geometry.GetLastBeamNo())
 
-print('- GetMemberIncidence')
-print(geometry.GetMemberIncidence(beam_1))
+# print('- GetMemberCount')
+# print(geometry.GetMemberCount())
 
-print('- GetNoOfSelectedBeams')
-print(geometry.GetNoOfSelectedBeams())
+# print('- GetMemberIncidence')
+# print(geometry.GetMemberIncidence(beam_1))
 
-print('- GetSelectedBeams')
-print(geometry.GetSelectedBeams()[0:10])
+# print('- GetNoOfSelectedBeams')
+# print(geometry.GetNoOfSelectedBeams())
 
-print('- GetNoOfBeamsConnectedAtNode')
-print(geometry.GetNoOfBeamsConnectedAtNode(node_1))
+# print('- GetSelectedBeams')
+# print(geometry.GetSelectedBeams()[0:10])
 
-print('- GetBeamsConnectedAtNode')
-print(geometry.GetBeamsConnectedAtNode(node_1))
+# print('- GetNoOfBeamsConnectedAtNode')
+# print(geometry.GetNoOfBeamsConnectedAtNode(node_1))
 
-# ## GEOMETRY - GROUP
+# print('- GetBeamsConnectedAtNode')
+# print(geometry.GetBeamsConnectedAtNode(node_1))
 
-print('-'*20+'\nGeometry group Functions\n'+'-'*20)
+# # ## GEOMETRY - GROUP
 
-group_1 = '_BEAMS'
-print('- GetGroupEntityCount')
-print(geometry.GetGroupEntityCount(group_1))
+# print('-'*20+'\nGeometry group Functions\n'+'-'*20)
 
-print('- GetGroupEntities')
-print(geometry.GetGroupEntities(group_1)[0:10])
+# group_1 = '_BEAMS'
+# print('- GetGroupEntityCount')
+# print(geometry.GetGroupEntityCount(group_1))
 
-# print("\nPROPERTIES FUNCTIONS\n")
+# print('- GetGroupEntities')
+# print(geometry.GetGroupEntities(group_1)[0:10])
 
-print('-'*20+'\nProperties Functions\n'+'-'*20)
+# # print("\nPROPERTIES FUNCTIONS\n")
 
-print('- GetBeamSectionName')
-print(properties.GetBeamSectionName(beam_1))
+# print('-'*20+'\nProperties Functions\n'+'-'*20)
 
-print('- GetBeamSectionPropertyRefNo')
-print(properties.GetBeamSectionPropertyRefNo(beam_1))
+# print('- GetBeamSectionName')
+# print(properties.GetBeamSectionName(beam_1))
 
-print('- GetSectionPropertyValues')
-print(properties.GetSectionPropertyValues(4))
+# print('- GetBeamSectionPropertyRefNo')
+# print(properties.GetBeamSectionPropertyRefNo(beam_1))
 
-print('- GetMemberSpecCode')
-print(properties.GetMemberSpecCode(424))
+# print('- GetSectionPropertyValues')
+# print(properties.GetSectionPropertyValues(4))
 
-# ## ROOT FUNCTIONS 
+# print('- GetMemberSpecCode')
+# print(properties.GetMemberSpecCode(424))
 
-print('-'*20+'\nRoot Functions\n'+'-'*20)
+# # ## ROOT FUNCTIONS 
 
-print('- GetAnalysisStatus')
-print(root.GetAnalysisStatus())
+# print('-'*20+'\nRoot Functions\n'+'-'*20)
 
-print('- GetApplicationVersion')
-print(root.GetApplicationVersion())
+# print('- GetAnalysisStatus')
+# print(root.GetAnalysisStatus())
 
-print('- GetBaseUnit')
-print(root.GetBaseUnit())
+# print('- GetApplicationVersion')
+# print(root.GetApplicationVersion())
 
-print('- GetInputUnitForForce')
-print(root.GetInputUnitForForce())
+# print('- GetBaseUnit')
+# print(root.GetBaseUnit())
 
-print('- GetInputUnitForLength')
-print(root.GetInputUnitForLength())
+# print('- GetInputUnitForForce')
+# print(root.GetInputUnitForForce())
 
-print('- GetSTAADFile')
-print(root.GetSTAADFile())
+# print('- GetInputUnitForLength')
+# print(root.GetInputUnitForLength())
 
-print('- GetSTAADFile')
-print(root.GetSTAADFile(bFullPath=False))
+# print('- GetSTAADFile')
+# print(root.GetSTAADFile())
 
-print('- GetSTAADFileFolder')
-print(root.GetSTAADFileFolder())
+# print('- GetSTAADFile')
+# print(root.GetSTAADFile(bFullPath=False))
 
-## OUTPUT FUNCTIONS
+# print('- GetSTAADFileFolder')
+# print(root.GetSTAADFileFolder())
 
-print('-'*20+'\nOutput Functions\n'+'-'*20)
+# ## OUTPUT FUNCTIONS
 
-print('- GetMemberEndForces')
-print(output.GetMemberEndForces(beam=beam_1, start=False, lc=1, local = 1))
+# print('-'*20+'\nOutput Functions\n'+'-'*20)
 
-print('- GetSupportReactions')
-print(output.GetSupportReactions(node_1))
+# print('- GetMemberEndForces')
+# print(output.GetMemberEndForces(beam=beam_1, start=False, lc=1, local = 1))
 
-print('-'*20+'\nLoad Functions\n'+'-'*20)
+# print('- GetSupportReactions')
+# print(output.GetSupportReactions(node_1))
 
-print('- GetLoadCaseTitle')
-print(load.GetLoadCaseTitle(lc=1))
+# print('-'*20+'\nLoad Functions\n'+'-'*20)
 
-
-from openstaad import Root, Geometry,Load,Output,Properties, Support, View
+# print('- GetLoadCaseTitle')
+# print(load.GetLoadCaseTitle(lc=1))
 
 
-root = Root()
+# from openstaad import Root, Geometry,Load,Output,Properties, Support, View
 
-staad_path1=""
-staad_path2=""
 
-root1 = Root(staad_path1)
-geometry1=Geometry(staad_path1)
-load1=Load(staad_path1)
-output1=Output(staad_path1)
-properties1=Properties(staad_path1)
-support1=Support(staad_path1)
-view1=View(staad_path1)
-root2 = Root(staad_path2)
-load2=Load(staad_path2)
-output2=Output(staad_path2)
-geometry2=Geometry(staad_path2)
-properties2=Properties(staad_path2)
-support2=Support(staad_path2)
-view2=View(staad_path2)
+# root = Root()
+def has_loads(load_data):
+    return any(len(x) > 0 for x in load_data)
 
-print(root1.GetSTAADFile())
-print(geometry1.GetSelectedBeams())
-print(load1.GetLoadListCount())
-print(output1.GetSupportReactions(1,10))
-print(properties1.GetBeamSectionName(1))
-print(support1.GetSupportType(2))
-view1.ShowMembers([1,2,3,4])
-print(root2.GetSTAADFile())
-print(geometry2.GetSelectedBeams())
-print(load2.GetLoadCombinationCaseCount())
-print(output2.GetSupportReactions(2,10))
-print(properties2.GetBeamSectionName(71))
-print(support2.GetSupportType(4))
-view2.ShowMembers([1,2,3,4])
+def parse_udl_load(udl_tuple):
+    """
+    Convierte un tuple de UDL en un diccionario legible:
+    - direction: índice de dirección (0=X_local, ..., 5=Y_global, ...)
+    - magnitude: valor de la carga
+    - D1, D2, D3: desplazamientos / offsets
+    """
+    if not udl_tuple or len(udl_tuple) < 5:
+        return None
 
+    direction, magnitude, d1, d2, d3 = udl_tuple
+
+    return {
+        "direction_index": direction[0] if direction else None,
+        "magnitude": magnitude[0] if magnitude else 0,
+        "D1": d1[0] if d1 else 0,
+        "D2": d2[0] if d2 else 0,
+        "D3": d3[0] if d3 else 0
+    }
+
+def parse_concentrated_load(conc_tuple):
+    """
+    Convierte un tuple de concentrated load en un diccionario legible:
+    - direction_index: índice de la dirección de la carga
+    - magnitude: valor de la carga
+    - D1, D2: desplazamientos o offsets
+    """
+    if not conc_tuple or len(conc_tuple) < 4:
+        return None
+
+    direction, magnitude, d1, d2 = conc_tuple
+
+    return {
+        "direction_index": direction[0] if direction else None,
+        "magnitude": magnitude[0] if magnitude else 0,
+        "D1": d1[0] if d1 else 0,
+        "D2": d2[0] if d2 else 0
+    }
+
+
+def parse_nodal_load(nodal_tuple):
+    """
+    Convierte un tuple de nodal load en un diccionario legible:
+    - Fx, Fy, Fz: fuerzas
+    - Mx, My, Mz: momentos
+    """
+    if not nodal_tuple or len(nodal_tuple) < 6:
+        return None
+
+    fx, fy, fz, mx, my, mz = nodal_tuple
+
+    return {
+        "Fx": fx[0] if fx else 0,
+        "Fy": fy[0] if fy else 0,
+        "Fz": fz[0] if fz else 0,
+        "Mx": mx[0] if mx else 0,
+        "My": my[0] if my else 0,
+        "Mz": mz[0] if mz else 0
+    }
+
+staad_path1="C:\\Users\\ccarvajal\\Downloads\\Staad_to_SACS\\Staad\\test_to_sacs.std"
+
+
+root = Root(staad_path1)
+geometry=Geometry(staad_path1)
+load=Load(staad_path1)
+output=Output(staad_path1)
+properties=Properties(staad_path1)
+support=Support(staad_path1)
+view=View(staad_path1)
+
+geometry.GetMemberIncidence
+count_lc=load.GetPrimaryLoadCaseCount()
+load_cases=list(load.GetPrimaryLoadCaseNumbers())
+beam_list=geometry.GetBeamList()
+node_list=geometry.GetNodeList()
+
+load_cases_data = {}
+
+for load_case in load_cases:
+    load.SetLoadActive(load_case)
+
+    load_case_title = load.GetLoadCaseTitle(load_case)
+    load_type_code = load.GetLoadType(load_case)
+
+    item_load_count = load.GetLoadItemsCount(load_case)
+    load_items = []
+
+    for item_load in range(item_load_count):
+        load_item_type = load.GetLoadItemType(load_case, item_load)
+
+        if not load_item_type or load_item_type == "Unknown Load Item Type":
+            continue
+
+        load_items.append(load_item_type)
+
+    nodal_loads = {}
+
+    for node in node_list:
+        node_load = load.GetNodalLoads(node)
+        node_load_parsed=parse_nodal_load(node_load)
+
+        if not has_loads(node_load):
+            continue
+
+        nodal_loads[node] = {
+            "loads": node_load_parsed
+        }
+
+    beam_loads = {}
+
+    for beam in beam_list:
+        udl_load = load.GetUDLLoads(beam)
+        udl_load_parsed=parse_udl_load(udl_load)
+        conc_load = load.GetConcForces(beam)
+        conc_load_parsed=parse_concentrated_load(conc_load)
+
+        if not has_loads(udl_load) and not has_loads(conc_load):
+            continue
+
+        beam_loads[beam] = {
+            "udl": udl_load_parsed,
+            "concentrated": conc_load_parsed
+        }
+
+    load_cases_data[load_case] = {
+        "title": load_case_title,
+        "type": load_type_code,
+        "items": load_items,
+        "nodal_loads": nodal_loads,
+        "beam_loads": beam_loads,
+    }
+
+print(load_cases_data)

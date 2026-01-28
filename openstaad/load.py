@@ -308,7 +308,76 @@ class Load():
         """
         Returns the load item type for the specified loadIndex and loadCase.
         """
-        return self._load.GetLoadItemType(load_case, item_index)
+        LOAD_ITEM_TYPE = {
+        4000: "SelfWeight",
+        3110: "Nodal Load (Node)",
+        3120: "Nodal Load (Inclined)",
+        3910: "Nodal Load (Support Displacement)",
+        3312: "Partial plate pressure load",
+        3210: "Uniform Force",
+        3220: "Uniform Moment",
+        3230: "Concentrated Force",
+        3240: "Concentrated Moment",
+        3250: "Linear Varying",
+        3260: "Trapezoidal",
+        3261: "Hydrostatic",
+        3620: "Pre/Post Stress",
+        3810: "Fixed End",
+        3275: "Uniform Force (Physical)",
+        3280: "Uniform Moment (Physical)",
+        3285: "Concentrated Force (Physical)",
+        3290: "Concentrated Moment (Physical)",
+        3295: "Trapezoidal (Physical)",
+        3410: "Area",
+        3510: "FloorLoadYrange",
+        3511: "FloorLoadXrange",
+        3520: "FloorLoadZrange",
+        3530: "FloorLoadGroup",
+        3551: "OneWayFloorLoadXrange",
+        3552: "OneWayFloorLoadYrange",
+        3553: "OneWayFloorLoadZrange",
+        3554: "OneWayFloorLoadGroup",
+        3310: "Pressure on full plate",
+        3311: "Concentrated Load (Plate)",
+        3320: "Trapezoidal (Plate)",
+        3322: "Solid",
+        3710: "Temperature",
+        3720: "Strain",
+        3721: "Strain Rate",
+        4400: "UBC Load",
+        4405: "IbcLoad",
+        4410: "1893Load",
+        4500: "AijLoad",
+        4510: "ColombianLoad",
+        4520: "CFELoad",
+        4530: "RPALoad",
+        4540: "NTCLoad",
+        4550: "NRCLoad",
+        4560: "NRCLoad2005",
+        4561: "NRCLoad2010",
+        4570: "TurkishLoad",
+        4575: "GB50011Load",
+        4576: "Colombian2010Load",
+        4600: "Wind Load",
+        4610: "Wind Load Dynamic",
+        4650: "Snow Load",
+        4651: "Snow Load Data",
+        4820: "TimeHistoryLoad",
+        4100: "Spectrum Load",
+        4101: "Spectrum Data",
+        4200: "Repeat load",
+        4201: "Repeat load data",
+        4220: "Reference Load",
+        4222: "Notional Load",
+        4223: "Notional Load Data",
+        4700: "Calulate Natural Frequency",
+        4701: "Calulate Rayleigh Frequency",
+        4710: "Modal Calculation Requested",
+        }
+        
+        load_type_code=self._load.GetLoadItemType(load_case, item_index)
+
+        return LOAD_ITEM_TYPE.get(load_type_code, "Unknown Load Item Type")
     
     def GetLoadListCount(self):
         """
@@ -333,7 +402,36 @@ class Load():
         """
         Returns primary load case category(s) as an long value.
         """
-        return self._load.GetLoadType(load_no)
+        LOAD_TYPE = {
+            0:  "Dead",
+            1:  "Live",
+            2:  "Roof Live",
+            3:  "Wind",
+            4:  "Seismic-H",
+            5:  "Seismic-V",
+            6:  "Snow",
+            7:  "Fluids",
+            8:  "Soil",
+            9:  "Rain",
+            10: "Ponding",
+            11: "Dust",
+            12: "Traffic",
+            13: "Temperature",
+            14: "Imperfection",
+            15: "Accidental",
+            16: "Flood",
+            17: "Ice",
+            18: "Wind Ice",
+            19: "Crane Hook",
+            20: "Mass",
+            21: "Gravity",
+            22: "Push",
+            23: "None",
+        }
+
+        load_type_code=self._load.GetLoadType(load_no)
+
+        return LOAD_TYPE.get(load_type_code, "Unknown Load Item Type")
     
     def GetMemberLoadInfo(self, load_index:int):
         """
